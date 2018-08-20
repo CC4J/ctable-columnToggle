@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- you can use any UI framework not only bootstrap -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style>
+    th, td{text-align: center;}
+    .btn-group{
+      margin-top: 100px;
+      margin-left: 40px;
+    }
+    .table-content{
+      padding: 20px 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="btn-group">
+    <button id="toggle_btn" type="button" class="btn btn-primary">隐藏列</button>
+  </div>
+  <div class="table-content">
+    <table id="data_table" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <td>资产编号</td>
+          <td>资产名称</td>
+          <td>资产类型</td>
+          <td>资产类别</td>
+          <td>放置地点</td>
+          <td>入库时间</td>
+          <td>发放时间</td>
+          <td>所属部门</td>
+          <td>责任人</td>
+          <td>
+            年限预警
+            <span style="color: #ffffff;margin-left: 4px;font-size: 15px;">⬆</span>
+            <span style="color: #ffffff;margin-left: 4px;font-size: 15px;display: none">⬇</span>
+          </td>
+          <td style="width: 114px">
+            <select name="city">
+              <option value="">状态</option>
+              <option value="0">使用</option>
+              <option value="1">维修</option>
+            </select>
+          </td>
+          <td>资产日志</td>
+          <td>合计</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>xx-2017-0001</td>
+          <td>涉密笔记本</td>
+          <td>信息化设备</td>
+          <td>电脑</td>
+          <td>A201</td>
+          <td>2017-08-08</td>
+          <td>2017-08-20</td>
+          <td>信息部</td>
+          <td>张三</td>
+          <td>预警</td>
+          <td>使用</td>
+          <td><span style="cursor: pointer;color: #f40002">查看</span></td>
+          <td rowspan="10">100</td>
+        </tr>
+        <tr>
+          <td>xx-2017-0001</td>
+          <td>涉密笔记本</td>
+          <td>信息化设备</td>
+          <td>电脑</td>
+          <td>A201</td>
+          <td>2017-08-08</td>
+          <td>2017-08-20</td>
+          <td>信息部</td>
+          <td>张三</td>
+          <td>预警</td>
+          <td>使用</td>
+          <td><span style="cursor: pointer;color: #f40002">查看</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- import column-toggle.js file -->
+  <script src="../dist/ctable-column-toggle.js"></script>
+  <script>
+    $(document).ready(function () {
+      // theads data array
+      var theads = [
+          '资产编号', '资产名称', '资产类型', '资产类别', '放置地点', '入库时间', '发放时间', '所属部门', '责任人', '年限预警', '状态', '资产日志', '合计'
+      ]
+      // you need tableId btnId and theads data array to init it
+      Ctable.init('data_table', 'toggle_btn', theads);
+    })
+  </script>
+</body>
+</html>
