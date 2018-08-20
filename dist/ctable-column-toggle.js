@@ -16,11 +16,13 @@
       var btnParent = json._btn.parent()
       btnParent.css('position', 'relative')
       //创建选择框列表
-      var _checkGroup = $('<ul id="colList" style="display:none; width:200px; overflow: auto; line-height: 32px; position:absolute; top: 40px; left: 0; background:#FFFFFF; border:1px solid #ccc; z-index: 99;padding: 10px 30px;"></ul>')
+      var ulStyle = json.ulStyle || 'display:none; width:200px; overflow: auto; line-height: 32px; position:absolute; top: 40px; left: 0; background:#FFFFFF; border:1px solid #ccc; z-index: 99;padding: 10px 30px;'
+      var liStyle = json.liStyle || 'display:block;font-size:14px;line-heigth:14px;'
+      var _checkGroup = $('<ul id="colList" style="'+ ulStyle +'"></ul>')
       // 将checkbox渲染到 checkGroup中，然后添加到按钮父容器里
       var lis = '';
       for (var i = 0; i < json.theadData.length; i++) {
-        lis += '<li style="display:block;font-size:14px;line-heigth:14px;"><input type="checkbox" style="margin-right: 10px;vertical-align: middle;zoom:140%;" data-index="'+ i +'">'+ json.theadData[i] +'</li>'
+        lis += '<li style="'+ liStyle +'"><input type="checkbox" style="margin-right: 10px;vertical-align: middle;zoom:140%;" data-index="'+ i +'">'+ json.theadData[i] +'</li>'
       }
       _checkGroup.append(lis);
       btnParent.append(_checkGroup);
