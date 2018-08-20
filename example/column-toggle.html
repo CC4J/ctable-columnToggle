@@ -91,11 +91,13 @@
   <script>
     $(document).ready(function () {
       // theads data array
-      var theads = [
+      var mTable = new CcTable("#data_table")
+      mTable.init({
+        btnId :'#toggle_btn',
+        theadData : [
           '资产编号', '资产名称', '资产类型', '资产类别', '放置地点', '入库时间', '发放时间', '所属部门', '责任人', '年限预警', '状态', '资产日志', '合计'
-      ]
-      // you need tableId btnId and theads data array to init it
-      Ctable.init('data_table', 'toggle_btn', theads);
+        ]
+      })
     })
   </script>
 </body>
